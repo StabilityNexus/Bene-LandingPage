@@ -29,18 +29,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set environment for build
+      - name: Set environment variables
         run: |
-          chmod +x set-env.sh
-          ./set-env.sh
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          echo "NEXT_PUBLIC_BASE_PATH=/${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
       - name: Build with Next.js
         run: npm run build
         env:
-          GITHUB_ACTIONS: true
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.repository.split('/')[1] }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
