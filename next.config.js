@@ -17,11 +17,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'src')],
-  },
-  assetPrefix: assetPrefix,
-  basePath: basePath,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig;

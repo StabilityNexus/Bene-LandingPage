@@ -2,11 +2,13 @@
   "name": "bene",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://AdityaGupta20871.github.io/Bene-LandingPage",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "eslint": "8.45.0",
