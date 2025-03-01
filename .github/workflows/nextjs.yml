@@ -31,12 +31,12 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "NEXT_PUBLIC_BASE_PATH=/${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_BASE_PATH=/Bene-LandingPage" >> $GITHUB_ENV
 
       - name: Build with Next.js
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /${{ github.repository.split('/')[1] }}
+          NEXT_PUBLIC_BASE_PATH: /Bene-LandingPage
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
