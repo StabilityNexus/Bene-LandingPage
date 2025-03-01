@@ -4,17 +4,22 @@ import Rounded from '../../common/RoundedButton';
 import { useRef } from 'react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
+import { usePathname } from 'next/navigation';
 
 export default function Contact() {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ["start end", "end end"]
-    })
-    const x = useTransform(scrollYProgress, [0, 1], [0, 100])
-    const y = useTransform(scrollYProgress, [0, 1], [500, 0])
-
-    const rotate = useTransform(scrollYProgress, [0, 1], [120, 90])
+    });
+    const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
+    const y = useTransform(scrollYProgress, [0, 1], [500, 0]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
+    
+    // For Next.js App Router, we need to get basePath differently
+    const pathname = usePathname();
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    
     return (
         <motion.div style={{y}} ref={container} className={styles.contact}>
             <div className={styles.body}>
@@ -24,14 +29,14 @@ export default function Contact() {
                             <Image 
                             fill={true}
                             alt={"image"}
-                            src={`/images/bene.svg`}
+                            src={`${basePath}/images/bene.svg`}
                             />
                         </div>
                         <h2>Have a Question?</h2>
                     </span>
                     <h2>Reach out to us</h2>
                     <motion.div style={{x}} className={styles.buttonContainer}>
-                        <Rounded  backgroundColor={"#FFA500"} className={styles.button} link="https://discord.com/channels/995968619034984528/1311251432359591967">
+                        <Rounded backgroundColor={"#FFA500"} className={styles.button} link="https://discord.com/channels/995968619034984528/1311251432359591967">
                             <p>Get in touch</p>
                         </Rounded>
                     </motion.div>

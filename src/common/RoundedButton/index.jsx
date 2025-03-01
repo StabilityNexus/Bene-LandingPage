@@ -8,6 +8,13 @@ const Rounded = ({ children, backgroundColor = "#FFA500", link, ...attributes })
   const circle = useRef(null);
   const timeline = useRef(null);
   let timeoutId = null;
+  
+  // Check if link is external (starts with http) or internal
+  const isExternalLink = link && (link.startsWith('http') || link.startsWith('https'));
+  
+  // Only use basePath for internal links - for GitHub Pages deployment
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const processedLink = isExternalLink ? link : (basePath + link);
 
   useEffect(() => {
     timeline.current = gsap.timeline({ paused: true });
@@ -29,7 +36,7 @@ const Rounded = ({ children, backgroundColor = "#FFA500", link, ...attributes })
 
   return (
     <Magnetic>
-      <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+      <a href={processedLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
         <div
           className={styles.roundedButton}
           style={{ overflow: "hidden" }}
