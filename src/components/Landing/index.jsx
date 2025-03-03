@@ -1,27 +1,33 @@
 'use client'; // Ensures this component runs only on the client-side in Next.js
 
 import Image from 'next/image';
-import styles from './style.module.scss'; 
-import { useEffect, useRef } from 'react'; 
-import { slideUp } from './animation'; 
-import { motion } from 'framer-motion'; 
-import Rounded from '@/common/RoundedButton'; 
+import styles from './style.module.scss';
+import { useEffect, useRef } from 'react';
+import { slideUp } from './animation';
+import { motion } from 'framer-motion';
+import Rounded from '@/common/RoundedButton';
+import { usePathname } from 'next/navigation';
 
 export default function Home() {
+  const pathname = usePathname();
+  // For Next.js App Router, we need to get basePath differently
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   useEffect(() => {
     // Ensure body allows scrolling
     document.body.style.overflow = 'auto';
   }, []);
+  
   return (
     <motion.main
-      variants={slideUp} 
-      initial="initial" 
-      animate="enter" 
-      className={styles.landing} 
+      variants={slideUp}
+      initial="initial"
+      animate="enter"
+      className={styles.landing}
     >
       {/* Background Image */}
       <div className={styles.background}>
-        <Image src="/images/bene9.png" fill={true} alt="background" />
+        <Image src={`${basePath}/images/bene9.png`} fill={true} alt="background" />
       </div>
 
       {/* Centered Content */}
