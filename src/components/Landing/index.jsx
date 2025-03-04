@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import styles from './style.module.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { slideUp } from './animation';
 import { motion } from 'framer-motion';
 import Rounded from '@/common/RoundedButton';
@@ -10,12 +10,26 @@ import { usePathname } from 'next/navigation';
 
 export default function Home() {
   const pathname = usePathname();
-  // For Next.js App Router, we need to get basePath differently
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const [imageSrc, setImageSrc] = useState('');
   
   useEffect(() => {
     // Ensure body allows scrolling
     document.body.style.overflow = 'auto';
+    
+    // Wait for the domain-check.js script to run
+    // It will set window.basePath properly based on the environment
+    setTimeout(() => {
+      const imgPath = window.basePath 
+        ? `${window.basePath}/images/bene9.png` 
+        : '/images/bene9.png';
+      
+      setImageSrc(imgPath);
+      
+      console.log('Setting image path:', {
+        windowBasePath: window.basePath,
+        resultingImagePath: imgPath
+      });
+    }, 50);
   }, []);
   
   return (
@@ -27,7 +41,7 @@ export default function Home() {
     >
       {/* Background Image */}
       <div className={styles.background}>
-        <Image src={`${basePath}/images/bene9.png`} fill={true} alt="background" />
+        {imageSrc && <Image src={imageSrc} fill={true} alt="background" priority />}
       </div>
 
       {/* Centered Content */}

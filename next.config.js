@@ -1,25 +1,16 @@
-const path = require('path');
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-
-let assetPrefix = '';
-let basePath = '';
-
-if (isGithubActions) {
-  // Trim off `refs/heads/` to get just the branch name
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
-  assetPrefix = `/${repo}/`;
-  basePath = `/${repo}`;
-}
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  // The official GitHub Pages action will set this automatically
+  // We don't need to manually configure it
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  // Allow the GitHub Pages action to set the basePath
+  // The custom domain check will be handled client-side
   trailingSlash: true,
+  // This ensures paths work correctly on both custom domains and GitHub Pages
+  assetPrefix: process.env.NODE_ENV === 'production' ? undefined : undefined,
 }
 
 module.exports = nextConfig;
