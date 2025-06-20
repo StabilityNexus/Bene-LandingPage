@@ -29,12 +29,11 @@ export default function Contact() {
                             <Image 
                             fill={true}
                             alt={"image"}
-                            src={`${basePath}/images/bene.svg`}
+                            src={`${basePath}/images/bene.png`}
                             />
                         </div>
                         <h2>Have a Question?</h2>
                     </span>
-                    <h2>Reach out to us</h2>
                     <motion.div style={{x}} className={styles.buttonContainer}>
                         <Rounded backgroundColor={"#FFA500"} className={styles.button} link="https://discord.com/channels/995968619034984528/1311251432359591967">
                             <p>Get in touch</p>
@@ -46,32 +45,49 @@ export default function Contact() {
                 </div>
                 <div className={styles.nav}>
                         <Rounded link="https://x.com/StabilityNexus">
-                            <p>Stbility Nexus</p>
+                            <p>Stability Nexus</p>
                         </Rounded>
-                        <Rounded link="https://x.com/DjedAlliance">
+                        {/* <Rounded link="https://x.com/DjedAlliance">
                             <p>Djed Alliance</p>
-                        </Rounded>
+                        </Rounded> */}
                 </div>
                 <div className={styles.info}>
                     <div>
                         <span>
-                            <h3>Version</h3>
-                            <p>2025 © Edition</p>
+                            {/* <h3>Version</h3> */}
+                            <p>Stability Nexus</p>
                         </span>
-                        
                     </div>
-                    <div>
-                        <span>
-                            <h3>socials</h3>
-                            <Magnetic>
-                                <a className={styles.link} href="https://discord.com/channels/995968619034984528/1311251432359591967"><p>Discord</p></a>
-                            </Magnetic>
-                        </span>
+                    <div className={styles.socials}>
                         <Magnetic>
-                        <a className={styles.link} href="https://t.me/StabilityNexus"><p>Telegram</p></a>
+                            <a className={styles.socialLink} href="https://discord.com/channels/995968619034984528/1311251432359591967">
+                                <Image 
+                                    src={`${basePath}/icons/discord-color.svg`}
+                                    alt="Discord"
+                                    width={20}
+                                    height={20}
+                                />
+                            </a>
                         </Magnetic>
                         <Magnetic>
-                        <a className={styles.link} href="https://www.linkedin.com/company/stability-nexus/"><p>LinkedIn</p></a>
+                            <a className={styles.socialLink} href="https://t.me/StabilityNexus">
+                                <Image 
+                                    src={`${basePath}/icons/telegram-color.svg`}
+                                    alt="Telegram"
+                                    width={20}
+                                    height={20}
+                                />
+                            </a>
+                        </Magnetic>
+                        <Magnetic>
+                            <a className={styles.socialLink} href="https://www.linkedin.com/company/stability-nexus/">
+                                <Image 
+                                    src={`${basePath}/icons/linkedin-color.svg`}
+                                    alt="LinkedIn"
+                                    width={20}
+                                    height={20}
+                                />
+                            </a>
                         </Magnetic>
                     </div>
                 </div>

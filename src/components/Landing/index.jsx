@@ -48,13 +48,10 @@ export default function Home() {
       <div className={styles.content}>
         <div className={styles.headingWrapper}>
           <h1 className={styles.mainHeading}>
-            Bene <span className={styles.highlight}>Proof-of-Funding</span>
+            Bene<br />
+            <span className={styles.highlight}>Proof-of-Funding</span>
           </h1>
           <h2 className={styles.subHeading}>Fundraising Platform</h2>
-          
-          <div className={styles.description}>
-            <p>Safe & Secure</p> 
-          </div>
         </div>
 
         {/* Buttons */}

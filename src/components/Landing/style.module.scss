@@ -14,8 +14,6 @@
     z-index: -1;
     img {
       object-fit: cover;
-      width: 100%;
-      height: 100%;
     }
   }
 
@@ -32,43 +30,34 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 80px;
     }
 
     .mainHeading {
-      font-size: 3.8rem;  // Same size for both lines
+      font-size: 3.5rem;  
       color: white;
       font-weight: 500;
       margin-bottom: 0;
+      line-height: 1.1; 
     }
 
     .subHeading {
-      font-size: 3.8rem;  // Same size for both lines
+      font-size: 3rem;  
       font-weight: 500;
-      margin-top: 5px; 
+      margin-top: 5px;
       color: white;
       margin-bottom: 20px;
     }
-    .description{
-      align-self: flex-end;
-      color: white;
-      font-size: 18px;
-      font-weight: 500;
-      
-      p{
-        margin: 0px;
-        margin-bottom: 10px;
-      }
-    }
+    
     .highlight {
       color: #FFA500;
     }
 
     .buttons {
+      position: absolute;
       display: flex;
-      gap: 10px;
+      gap: 15rem;
       flex-wrap: wrap;
-      margin-top: 30px; // Moves buttons below the subheading
+      bottom: 20px;
       p{
         color: white;
       }
@@ -79,11 +68,14 @@
 @media (max-width: 1024px) {
   .landing {
     .content {
-      .mainHeading, .subHeading {
+      .mainHeading {
         font-size: 3rem; // Reduce heading size for tablets
       }
-      .description {
-        font-size: 16px; // Slightly smaller text
+      .subHeading {
+        font-size: 2.8rem;
+      }
+      .buttons {
+        margin-bottom: 5px; // Less bottom margin on tablets
       }
     }
   }
@@ -93,19 +85,18 @@
   .landing {
     .content {
       .headingWrapper {
-        margin-top: 60px; // Adjust top margin for smaller screens
+        margin-top: 50px; // Adjust top margin for smaller screens
       }
-      .mainHeading, .subHeading {
+      .mainHeading {
         font-size: 2.5rem; // Reduce heading size further
       }
-      .description {
-        font-size: 15px;
-        align-self: center; // Center description for smaller screens
-        text-align: center;
+      .subHeading {
+        font-size: 2.3rem;
       }
       .buttons {
         flex-direction: column; // Stack buttons vertically
         align-items: center;
+        margin-bottom: 25px; // Less bottom margin on mobile
       }
     }
   }
@@ -114,19 +105,20 @@
 @media (max-width: 480px) {
   .landing {
     .content {
-      .mainHeading, .subHeading {
-        font-size: 1.8rem; // Further reduce heading size
+      .headingWrapper {
+        margin-top: 40px;
       }
-      .description {
-        font-size: 14px;
-        align-self: center;
-        text-align: center;
-        margin-top: 10px;
+      .mainHeading {
+        font-size: 2rem; // Further reduce heading size
+      }
+      .subHeading {
+        font-size: 1.8rem;
       }
       .buttons {
         width: 100%;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 20px;
       }
     }
   }
@@ -136,14 +128,16 @@
   .landing {
     .content {
       .headingWrapper{
-        margin-top: 140px;
+        margin-top: 30px;
       }
-      .mainHeading, .subHeading {
-        font-size: 1.7rem; // Even smaller for compact devices
+      .mainHeading {
+        font-size: 1.8rem; // Even smaller for compact devices
       }
-      .description {
-        font-size: 12px;
-        margin-top: 5px;
+      .subHeading {
+        font-size: 1.6rem;
+      }
+      .buttons {
+        margin-bottom: 15px;
       }
     }
   }
