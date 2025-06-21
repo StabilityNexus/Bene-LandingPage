@@ -2,6 +2,7 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
 import { useRef } from 'react';
+import { IconBrandDiscord, IconBrandTelegram, IconBrandLinkedin } from '@tabler/icons-react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
 import { usePathname } from 'next/navigation';
@@ -29,49 +30,48 @@ export default function Contact() {
                             <Image 
                             fill={true}
                             alt={"image"}
-                            src={`${basePath}/images/bene.svg`}
+                            src={`${basePath}/images/bene.png`}
                             />
                         </div>
                         <h2>Have a Question?</h2>
                     </span>
-                    <h2>Reach out to us</h2>
-                    <motion.div style={{x}} className={styles.buttonContainer}>
+                    {/* <motion.div style={{x}} className={styles.buttonContainer}>
                         <Rounded backgroundColor={"#FFA500"} className={styles.button} link="https://discord.com/channels/995968619034984528/1311251432359591967">
                             <p>Get in touch</p>
                         </Rounded>
-                    </motion.div>
-                    <motion.svg style={{rotate, scale: 2}} width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    </motion.div> */}
+                    {/* <motion.svg style={{rotate, scale: 2}} width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z" fill="white"/>
-                    </motion.svg>
+                    </motion.svg> */}
                 </div>
-                <div className={styles.nav}>
+                {/* <div className={styles.nav}>
                         <Rounded link="https://x.com/StabilityNexus">
-                            <p>Stbility Nexus</p>
+                            <p>Stability Nexus</p>
                         </Rounded>
                         <Rounded link="https://x.com/DjedAlliance">
                             <p>Djed Alliance</p>
                         </Rounded>
-                </div>
+                </div> */}
                 <div className={styles.info}>
                     <div>
                         <span>
-                            <h3>Version</h3>
-                            <p>2025 © Edition</p>
+                            {/* <h3>Version</h3> */}
+                            <p>Stability Nexus</p>
                         </span>
                         
                     </div>
                     <div>
                         <span>
-                            <h3>socials</h3>
+                            {/* <h3>socials</h3> */}
                             <Magnetic>
-                                <a className={styles.link} href="https://discord.com/channels/995968619034984528/1311251432359591967"><p>Discord</p></a>
+                                <a className={styles.link} href="https://discord.com/channels/995968619034984528/1311251432359591967" aria-label="Discord"><IconBrandDiscord size={24} color="#5865F2" /></a>
                             </Magnetic>
                         </span>
                         <Magnetic>
-                        <a className={styles.link} href="https://t.me/StabilityNexus"><p>Telegram</p></a>
+                        <a className={styles.link} href="https://t.me/StabilityNexus" aria-label="Telegram"><IconBrandTelegram size={24} color="#0088cc" /></a>
                         </Magnetic>
                         <Magnetic>
-                        <a className={styles.link} href="https://www.linkedin.com/company/stability-nexus/"><p>LinkedIn</p></a>
+                        <a className={styles.link} href="https://www.linkedin.com/company/stability-nexus/" aria-label="LinkedIn"><IconBrandLinkedin size={24} color="#0A66C2" /></a>
                         </Magnetic>
                     </div>
                 </div>
