@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
 import { useRef } from 'react';
-import { IconBrandDiscord, IconBrandTelegram, IconBrandLinkedin } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandTelegram, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
 import { usePathname } from 'next/navigation';
@@ -56,7 +56,7 @@ export default function Contact() {
                     <div>
                         <span>
                             {/* <h3>Version</h3> */}
-                            <p>Stability Nexus</p>
+                            <a href="https://www.stabilitynexus.com" target="_blank" rel="noopener noreferrer" className={styles.link}>Stability Nexus</a>
                         </span>
                         
                     </div>
@@ -72,6 +72,9 @@ export default function Contact() {
                         </Magnetic>
                         <Magnetic>
                         <a className={styles.link} href="https://www.linkedin.com/company/stability-nexus/" aria-label="LinkedIn"><IconBrandLinkedin size={24} color="#0A66C2" /></a>
+                        </Magnetic>
+                        <Magnetic>
+                        <a className={styles.link} href="https://github.com/StabilityNexus" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><IconBrandGithub size={24} color="#ffffff" /></a>
                         </Magnetic>
                     </div>
                 </div>
