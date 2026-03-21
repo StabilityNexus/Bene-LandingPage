@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
 import { useRef } from 'react';
-import { IconBrandDiscord, IconBrandTelegram, IconBrandLinkedin } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandTelegram, IconBrandLinkedin , IconBrandGithub} from '@tabler/icons-react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
 import { usePathname } from 'next/navigation';
@@ -56,7 +56,9 @@ export default function Contact() {
                     <div>
                         <span>
                             {/* <h3>Version</h3> */}
-                            <p>Stability Nexus</p>
+                            <a href="https://stability.nexus/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <p>Stability Nexus</p>
+                            </a>
                         </span>
                         
                     </div>
@@ -64,15 +66,18 @@ export default function Contact() {
                         <span>
                             {/* <h3>socials</h3> */}
                             <Magnetic>
-                                <a className={styles.link} href="https://discord.com/channels/995968619034984528/1311251432359591967" aria-label="Discord"><IconBrandDiscord size={24} color="#5865F2" /></a>
+                                <a className={styles.link} href="https://discord.com/channels/995968619034984528/1311251432359591967" target="_blank" aria-label="Discord"><IconBrandDiscord size={24} color="#5865F2" /></a>
                             </Magnetic>
                         </span>
-                        <Magnetic>
-                        <a className={styles.link} href="https://t.me/StabilityNexus" aria-label="Telegram"><IconBrandTelegram size={24} color="#0088cc" /></a>
-                        </Magnetic>
-                        <Magnetic>
-                        <a className={styles.link} href="https://www.linkedin.com/company/stability-nexus/" aria-label="LinkedIn"><IconBrandLinkedin size={24} color="#0A66C2" /></a>
-                        </Magnetic>
+                            <Magnetic>
+                            <a className={styles.link} href="https://t.me/StabilityNexus" target="_blank" aria-label="Telegram"><IconBrandTelegram size={24} color="#0088cc" /></a>
+                            </Magnetic>
+                            <Magnetic>
+                            <a className={styles.link} href="https://www.linkedin.com/company/stability-nexus/" target="_blank" aria-label="LinkedIn"><IconBrandLinkedin size={24} color="#0A66C2" /></a>
+                            </Magnetic>
+                            <Magnetic>
+                            <a className={styles.link} href="https://github.com/StabilityNexus/Bene-LandingPage/tree/main" target="_blank" aria-label="LinkedIn"><IconBrandGithub size={24} color="#0A66C2" /></a>
+                            </Magnetic>
                     </div>
                 </div>
             </div>
